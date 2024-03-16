@@ -18,12 +18,13 @@ using System.Data.SqlClient;
     /// </summary>
     public static class ConnectionAccess
     {
-        public static SqlConnection conn;
+        public static SqlConnection? Conn;
 
         public static async Task<SqlConnection> ConnectToDB(this string connectionString)
         {
-            conn = new SqlConnection(connectionString);
-            await conn.OpenAsync(); return conn;
+            Conn = new SqlConnection(connectionString);
+            await Conn.OpenAsync(); 
+            return Conn;
         }
     }
     /// <summary>
