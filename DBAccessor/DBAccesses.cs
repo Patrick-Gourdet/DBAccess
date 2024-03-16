@@ -1,7 +1,9 @@
 ﻿namespace DBAccessor;
 using System.Data.SqlClient;
 
-
+    /// <summary>
+    /// DBAccesses class to access the connection string and the connection to the database
+    /// </summary>
     public class DBAccesses
     {
 
@@ -11,6 +13,9 @@ using System.Data.SqlClient;
         public static SqlConnection? Connection { get; set; }
         public static SqlCommand? Command { get; set; }
     }
+    /// <summary>
+    /// ConnectionAccess class to connect to the database
+    /// </summary>
     public static class ConnectionAccess
     {
         public static SqlConnection conn;
@@ -21,7 +26,9 @@ using System.Data.SqlClient;
             await conn.OpenAsync(); return conn;
         }
     }
-
+    /// <summary>
+    /// ComposeCommand class to compose the SqlCommand
+    /// </summary>
     public static class AccessCommand
     {
         public static SqlCommand ComposeCommand(this SqlConnection connection, string command)
@@ -29,15 +36,18 @@ using System.Data.SqlClient;
             return new(command, connection);
         }
     }
-
+    /// <summary>
+    /// AddParam class to add parameters to the SqlCommand
+    /// </summary>
     public static class AddParam
     {
         public static SqlCommand WithParam(this SqlCommand command, string param, System.Data.SqlDbType sqlDataTYpe, object value)
         {
             try
             {
-                Type bla = value is null ? null : value.GetType();
-                var g = Convert.ChangeType(value, bla);
+                // Get the value type and convert it to the correct type for the database
+                Type? valueType = (value is null ? null : value.GetType()) ?? throw new ArgumentNullException("Value is null");
+                var g = Convert.ChangeType(value, valueType);
 
                 command.Parameters.Add(param, sqlDataTYpe, int.MaxValue);
                 command.Parameters[param].Value = g;
