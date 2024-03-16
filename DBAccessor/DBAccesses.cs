@@ -1,18 +1,19 @@
-﻿namespace DBAccessor;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 
+namespace DBAccessor
+{
     /// <summary>
     /// DBAccesses class to access the connection string and the connection to the database
     /// </summary>
     public class DBAccesses
     {
-
         public static string Connect { get; set; } = string.Empty;
 
-    #nullable enable
+        #nullable enable
         public static SqlConnection? Connection { get; set; }
         public static SqlCommand? Command { get; set; }
     }
+
     /// <summary>
     /// ConnectionAccess class to connect to the database
     /// </summary>
@@ -23,10 +24,11 @@ using System.Data.SqlClient;
         public static async Task<SqlConnection> ConnectToDB(this string connectionString)
         {
             Conn = new SqlConnection(connectionString);
-            await Conn.OpenAsync(); 
+            await Conn.OpenAsync();
             return Conn;
         }
     }
+
     /// <summary>
     /// ComposeCommand class to compose the SqlCommand
     /// </summary>
@@ -37,6 +39,7 @@ using System.Data.SqlClient;
             return new(command, connection);
         }
     }
+
     /// <summary>
     /// AddParam class to add parameters to the SqlCommand
     /// </summary>
@@ -59,7 +62,5 @@ using System.Data.SqlClient;
             }
             return command;
         }
-
     }
-
-
+}
