@@ -1,4 +1,5 @@
 
+using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
 
 namespace DBAccessor
@@ -10,8 +11,26 @@ namespace DBAccessor
     {    
         public static string GetString()
         {
-            var root = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", false, true).Build(); 
-            return root["AppSettings:DefaultConnection"] ?? throw new ArgumentNullException("Connection String is not found in appsettings.json");      
+            try
+            {
+                if(File.Exists($"{Directory.GetCurrentDirectory()}/AppSettings.json"))
+                {
+                    #if DEBUG
+                    Debug.WriteLine("AppSettings.json file found");
+                    #endif
+                    var root = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", false, true).Build(); 
+                    return root["AppSettings:DefaultConnection"] ??"";      
+                }
+                
+                #if DEBUG
+                Debug.WriteLine("AppSettings.json file not found");
+                #endif
+                return "";
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }            
         }
     }
 }
