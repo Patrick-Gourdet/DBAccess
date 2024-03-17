@@ -10,8 +10,7 @@ namespace DBAccessor
     {    
         public static string GetString()
         {
-            string c = Directory.GetCurrentDirectory();
-            var root = new ConfigurationBuilder().AddJsonFile("appsettings.json", false, true).Build(); 
+            var root = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", false, true).Build(); 
             return root["AppSettings:DefaultConnection"] ?? throw new ArgumentNullException("Connection String is not found in appsettings.json");      
         }
     }
