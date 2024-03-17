@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DBAccessor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+649145d1624c204cc3bf307e34520d364dbea600")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6a8f665a0fa3debc71fe39f704832c84c7619d3")]
 [assembly: System.Reflection.AssemblyProductAttribute("DBAccessor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DBAccessor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

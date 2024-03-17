@@ -1,0 +1,13 @@
+C:\Users\me\Documents\DBAccessorLib\DBAccessor\bin\Debug\net8.0\DBAccessor.deps.json
+C:\Users\me\Documents\DBAccessorLib\DBAccessor\bin\Debug\net8.0\DBAccessor.dll
+C:\Users\me\Documents\DBAccessorLib\DBAccessor\bin\Debug\net8.0\DBAccessor.pdb
+C:\Users\me\Documents\DBAccessorLib\DBAccessor\obj\Debug\net8.0\DBAccessor.csproj.AssemblyReference.cache
+C:\Users\me\Documents\DBAccessorLib\DBAccessor\obj\Debug\net8.0\DBAccessor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\me\Documents\DBAccessorLib\DBAccessor\obj\Debug\net8.0\DBAccessor.AssemblyInfoInputs.cache
+C:\Users\me\Documents\DBAccessorLib\DBAccessor\obj\Debug\net8.0\DBAccessor.AssemblyInfo.cs
+C:\Users\me\Documents\DBAccessorLib\DBAccessor\obj\Debug\net8.0\DBAccessor.csproj.CoreCompileInputs.cache
+C:\Users\me\Documents\DBAccessorLib\DBAccessor\obj\Debug\net8.0\DBAccessor.sourcelink.json
+C:\Users\me\Documents\DBAccessorLib\DBAccessor\obj\Debug\net8.0\DBAccessor.dll
+C:\Users\me\Documents\DBAccessorLib\DBAccessor\obj\Debug\net8.0\refint\DBAccessor.dll
+C:\Users\me\Documents\DBAccessorLib\DBAccessor\obj\Debug\net8.0\DBAccessor.pdb
+C:\Users\me\Documents\DBAccessorLib\DBAccessor\obj\Debug\net8.0\ref\DBAccessor.dll

@@ -7,11 +7,7 @@ namespace DBAccessor
     /// </summary>
     public class DBAccesses
     {
-        public static string Connect { get; set; } = string.Empty;
-
-        #nullable enable
-        public static SqlConnection? Connection { get; set; }
-        public static SqlCommand? Command { get; set; }
+        public static string Connect { get; set; } = ConnectionString.GetString();
     }
 
     /// <summary>
@@ -19,13 +15,19 @@ namespace DBAccessor
     /// </summary>
     public static class ConnectionAccess
     {
-        public static SqlConnection? Conn;
+        private static SqlConnection? conn;
 
-        public static async Task<SqlConnection> ConnectToDB(this string connectionString)
+        public static  SqlConnection ConnectToDB(this string connectionString)
         {
-            Conn = new SqlConnection(connectionString);
-            await Conn.OpenAsync();
-            return Conn;
+            conn = new SqlConnection(connectionString);
+            conn.Open(); 
+            return conn;
+        }
+        public static async Task<SqlConnection> ConnectToDBAsync(this string connectionString)
+        {
+            conn = new SqlConnection(connectionString);
+            await conn.OpenAsync();
+            return conn;
         }
     }
 
@@ -51,10 +53,10 @@ namespace DBAccessor
             {
                 // Get the value type and convert it to the correct type for the database
                 Type? valueType = (value is null ? null : value.GetType()) ?? throw new ArgumentNullException("Value is null");
-                var g = Convert.ChangeType(value, valueType);
+                var changedType = Convert.ChangeType(value, valueType);
 
                 command.Parameters.Add(param, sqlDataTYpe, int.MaxValue);
-                command.Parameters[param].Value = g;
+                command.Parameters[param].Value = changedType;
             }
             catch
             {
