@@ -7,7 +7,7 @@ namespace DBAccessor
     /// </summary>
     public class DBAccesses
     {
-        public static string Connect { get{ return !string.IsNullOrEmpty(Connect)?Connect: ConnectionString.GetString(); } set=>Connect = value; }
+        public static string Connect { get=>ConnectionString.GetString(); set => Connect =  value; }
         
     }
 
