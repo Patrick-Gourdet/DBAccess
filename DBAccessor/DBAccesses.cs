@@ -5,7 +5,7 @@ namespace DBAccessor
     /// <summary>
     /// DBAccesses class to access the connection string and the connection to the database
     /// </summary>
-    public class DBAccesses
+    public class DBAccess
     {
         public static string Connect { get=>ConnectionString.GetString(); set => Connect =  value; }
         
